@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
+
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+
+html{
+    scroll-snap-type: y mandatory;
+}
+
+.webgl{
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+body{
+    box-sizing:border-box;
+    height: 100%;
+    width: 100%;
+    font-family: 'Magilio', serif;
+    /* background-color: #3f3c67; */
+    background: rgb(196,196,196);
+    background: radial-gradient(circle, rgba(196,196,196,1) 0%, rgba(255,255,255,1) 100%);
+    overflow: hidden;
+}
+
+body.loaded {
+    overflow: auto;
+}
+
+section {
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    scroll-snap-align: start;
+}
+
+section .container{
+    max-width: 1240px;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-content: flex-start;
+}
+
+section.one .container{
+    grid-template-areas: 'content..';
+}
+
+section.two .container{
+    grid-template-areas: '..content';
+}
+
+.hero{
+    height: 100%;
+    width: 100%;
+    margin-bottom: 50px;
+
+    grid-area: content;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+}
+
+h1 {
+    font-family: 'Magilio', serif;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    font-size: 90px;
+    line-height: 100px;
+    font-weight: 300;
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    color: rgb(0, 38, 255);
+}
+
+h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 80px;
+    font-weight: 400;
+    line-height: 70px;
+    display: block;
+    width: 100%;
+    font-family: inherit;
+    color: rgb(0, 13, 255);
+}
+
+h2 span {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    display: block;
+    line-height: 60px;
+    width: 100%;
+    font-weight: 400;
+    margin-bottom: 30px;
+    color: rgb(31, 61, 255);
+}
+
+p{
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    line-height: 36px;
+    font-weight: 200;
+    width: 100%;
+    display: block;
+    color: rgb(0, 20, 135);
+}
+
+.loading-bar {
+    position: fixed;
+    top: 50%;
+    width: 100%;
+    height: 1px;
+    z-index: 99;
+    background: pink;
+    background: -webkit-linear-gradient(to right , orange, pink, orange);
+    background: linear-gradient(to right , orange, pink, orange);
+    transform: scaleX(0);
+    transition: transform 1s;
+    transform-origin: top-left;
+}
+
+.loading-bar.ended {
+    transform: scaleX(0);
+    transform-origin: 100% 0;
+    transition: transform 0s ease-in-out;
+}
+
